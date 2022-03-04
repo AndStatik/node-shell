@@ -3,6 +3,7 @@
 const pwd = require('./pwd.js');
 const list = require('./ls.js');
 const cat = require('./cat.js');
+const curl = require('./curl.js');
 
 process.stdout.write('prompt >');
 
@@ -21,5 +22,8 @@ process.stdin.on('data', (data) => {
   }
   if (cmd.includes('cat ')) {
     cat(cmd.split(' ')[1]);
+  }
+  if (cmd.includes('curl ')) {
+    curl(cmd.split(' ')[1]);
   }
 });
