@@ -1,6 +1,8 @@
-const { required } = require("nodemon/lib/config");
+// const { required } = require("nodemon/lib/config");
 
 const pwd = require('./pwd.js');
+const list = require('./ls.js');
+const cat = require('./cat.js');
 
 process.stdout.write('prompt >');
 
@@ -14,6 +16,10 @@ process.stdin.on('data', (data) => {
   if (cmd === 'pwd') {
     pwd();
   }
-
-
+  if (cmd === 'ls') {
+    list();
+  }
+  if (cmd.includes('cat ')) {
+    cat(cmd.split(' ')[1]);
+  }
 });
